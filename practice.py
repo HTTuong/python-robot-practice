@@ -15,3 +15,14 @@ sensors = [
 for sensor in sensors:
     status = check_temperature(sensor["temp"])
     print(f"{sensor['name']}: {sensor['temp']}°C - {status}")
+
+
+device_list = [
+    {"name": "Device 1", "status": True},
+    {"name": "Device 2", "status": True},
+    {"name": "Device 3", "status": False}
+]
+
+for device in device_list:
+    status: str =  "On" if device["status"] else "Off"
+    print(f"{device["name"]} is {status}")
