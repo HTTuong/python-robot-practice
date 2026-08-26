@@ -17,6 +17,11 @@ Login With Wrong Password
     Get Text    [data-test="error"]    contains    do not match   
     Close Browser
 
+Login With Locked Out User
+    Open Saucedemo And Login    locked_out_user    secret_sauce
+    Get Text       [data-test="error"]    contains    locked out
+    Close Browser
+
 *** Keywords ***
 Open Saucedemo And Login
     [Arguments]    ${username}    ${password}
@@ -24,4 +29,4 @@ Open Saucedemo And Login
     New Page    ${BASE_URL}
     Fill Text    id=user-name    ${username}
     Fill Text    id=password    ${password}
-    Click    id=login-button
+    Click    id=login-button 
