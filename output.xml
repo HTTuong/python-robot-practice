@@ -1,227 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.13.7 on darwin)" generated="2026-08-27T23:36:33.272838" rpa="false" schemaversion="5">
-<suite id="s1" name="Dropdown" source="/Users/tuonghoang/Documents/Projects/robot-framework-automation/tests/dropdown.robot">
-<test id="s1-t1" name="Sort product in ascending price" line="11">
+<robot generator="Robot 7.4.2 (Python 3.13.7 on darwin)" generated="2026-08-27T23:47:15.508388" rpa="false" schemaversion="5">
+<suite id="s1" name="Cart" source="/Users/tuonghoang/Documents/Projects/robot-framework-automation/tests/cart.robot">
+<test id="s1-t1" name="Add Product To Cart And Check Cart Badge" line="11">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-08-27T23:36:33.440283" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/tuonghoang/Documents/Projects/robot-framework-automation/browser/traces/temp/9f01250f-537e-4714-b574-7c7c290f58fe"}</msg>
-<msg time="2026-08-27T23:36:33.553702" level="INFO">Starting Browser process /Users/tuonghoang/Documents/Projects/robot-framework-automation/venv/lib/python3.13/site-packages/Browser/wrapper/index.js using at 127.0.0.1:53592</msg>
-<msg time="2026-08-27T23:36:36.458764" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/tuonghoang/Documents/Projects/robot-framework-automation/browser/traces/temp/9f01250f-537e-4714-b574-7c7c290f58fe"}</msg>
+<msg time="2026-08-27T23:47:15.656695" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/tuonghoang/Documents/Projects/robot-framework-automation/browser/traces/temp/f8a0c9a5-1de5-4610-8226-14d15b8fa6bf"}</msg>
+<msg time="2026-08-27T23:47:15.763396" level="INFO">Starting Browser process /Users/tuonghoang/Documents/Projects/robot-framework-automation/venv/lib/python3.13/site-packages/Browser/wrapper/index.js using at 127.0.0.1:53651</msg>
+<msg time="2026-08-27T23:47:18.775608" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/tuonghoang/Documents/Projects/robot-framework-automation/browser/traces/temp/f8a0c9a5-1de5-4610-8226-14d15b8fa6bf"}</msg>
 <arg>chromium</arg>
 <arg>headless=False</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-08-27T23:36:33.439905" elapsed="3.020519"/>
+<status status="PASS" start="2026-08-27T23:47:15.656345" elapsed="3.122190"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-08-27T23:36:38.196242" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com</msg>
-<msg time="2026-08-27T23:36:38.197664" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-08-27T23:47:20.330352" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com</msg>
+<msg time="2026-08-27T23:47:20.331972" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-08-27T23:36:36.461564" elapsed="1.737125"/>
+<status status="PASS" start="2026-08-27T23:47:18.781395" elapsed="1.552617"/>
 </kw>
 <kw name="Fill Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.212127" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<msg time="2026-08-27T23:47:20.338030" level="INFO">Fills the text 'standard_user' in the given field.</msg>
 <arg>id=user-name</arg>
 <arg>${USERNAME}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.204312" elapsed="0.376117"/>
+<status status="PASS" start="2026-08-27T23:47:20.335246" elapsed="0.189551"/>
 </kw>
 <kw name="Fill Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.581016" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
+<msg time="2026-08-27T23:47:20.525367" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
 <arg>id=password</arg>
 <arg>${PASSWORD}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.580621" elapsed="0.077629"/>
+<status status="PASS" start="2026-08-27T23:47:20.524986" elapsed="0.054248"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-08-27T23:36:38.659543" level="INFO">Clicks the element 'id=login-button'.</msg>
+<msg time="2026-08-27T23:47:20.579784" level="INFO">Clicks the element 'id=login-button'.</msg>
 <arg>id=login-button</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.658647" elapsed="0.130305"/>
+<status status="PASS" start="2026-08-27T23:47:20.579430" elapsed="0.120998"/>
 </kw>
-<kw name="Select Options By" owner="Browser">
-<msg time="2026-08-27T23:36:38.789823" level="INFO">Selects the option(s) lohi by attribute SelectAttribute.value from element css=[data-test="product-sort-container"].</msg>
-<arg>css=[data-test="product-sort-container"]</arg>
-<arg>value</arg>
-<arg>lohi</arg>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-27T23:47:20.700932" level="INFO">Clicks the element 'css=.inventory_item:nth-child(1) &gt;&gt; css=button'.</msg>
+<arg>css=.inventory_item:nth-child(1) &gt;&gt; css=button</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
-<doc>Selects options from select element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.789253" elapsed="0.030135"/>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-27T23:47:20.700605" elapsed="0.037231"/>
 </kw>
-<kw name="Get Element Count" owner="Browser">
-<msg time="2026-08-27T23:36:38.824331" level="INFO">${count} = 6</msg>
-<var>${count}</var>
-<arg>css=.inventory_item_price</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns the count of elements found with ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.819603" elapsed="0.004765"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2026-08-27T23:36:38.825004" level="INFO">@{prices} = [ ]</msg>
-<var>@{prices}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.824537" elapsed="0.000489"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.837698" level="INFO">Text: ['$7.99']</msg>
-<msg time="2026-08-27T23:36:38.837893" level="INFO">${price_text} = $7.99</msg>
-<var>${price_text}</var>
-<arg>css=:nth-match(.inventory_item_price, ${index})</arg>
+<msg time="2026-08-27T23:47:20.765262" level="INFO">Text: ['1']</msg>
+<arg>css=.shopping_cart_badge</arg>
+<arg>==</arg>
+<arg>1</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.826147" elapsed="0.011762"/>
+<status status="PASS" start="2026-08-27T23:47:20.738081" elapsed="0.027263"/>
 </kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price_text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.838142" elapsed="0.000443"/>
+<kw name="Click" owner="Browser">
+<msg time="2026-08-27T23:47:20.765882" level="INFO">Clicks the element 'css=.inventory_item:nth-child(2) &gt;&gt; css=button'.</msg>
+<arg>css=.inventory_item:nth-child(2) &gt;&gt; css=button</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-08-27T23:47:20.765507" elapsed="0.022687"/>
 </kw>
-<var name="${index}">1</var>
-<status status="PASS" start="2026-08-27T23:36:38.826009" elapsed="0.012613"/>
-</iter>
-<iter>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.848896" level="INFO">Text: ['$9.99']</msg>
-<msg time="2026-08-27T23:36:38.849000" level="INFO">${price_text} = $9.99</msg>
-<var>${price_text}</var>
-<arg>css=:nth-match(.inventory_item_price, ${index})</arg>
+<msg time="2026-08-27T23:47:20.793522" level="INFO">Text: ['2']</msg>
+<arg>css=.shopping_cart_badge</arg>
+<arg>==</arg>
+<arg>2</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.838859" elapsed="0.010157"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price_text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.849135" elapsed="0.000230"/>
-</kw>
-<var name="${index}">2</var>
-<status status="PASS" start="2026-08-27T23:36:38.838712" elapsed="0.010685"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.868276" level="INFO">Text: ['$15.99']</msg>
-<msg time="2026-08-27T23:36:38.868663" level="INFO">${price_text} = $15.99</msg>
-<var>${price_text}</var>
-<arg>css=:nth-match(.inventory_item_price, ${index})</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.849542" elapsed="0.019203"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price_text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.869491" elapsed="0.001992"/>
-</kw>
-<var name="${index}">3</var>
-<status status="PASS" start="2026-08-27T23:36:38.849470" elapsed="0.022077"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.904766" level="INFO">Text: ['$15.99']</msg>
-<msg time="2026-08-27T23:36:38.904863" level="INFO">${price_text} = $15.99</msg>
-<var>${price_text}</var>
-<arg>css=:nth-match(.inventory_item_price, ${index})</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.872410" elapsed="0.032470"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price_text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.905007" elapsed="0.000250"/>
-</kw>
-<var name="${index}">4</var>
-<status status="PASS" start="2026-08-27T23:36:38.872130" elapsed="0.033163"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.911375" level="INFO">Text: ['$29.99']</msg>
-<msg time="2026-08-27T23:36:38.911628" level="INFO">${price_text} = $29.99</msg>
-<var>${price_text}</var>
-<arg>css=:nth-match(.inventory_item_price, ${index})</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.905449" elapsed="0.006203"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price_text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.911857" elapsed="0.000246"/>
-</kw>
-<var name="${index}">5</var>
-<status status="PASS" start="2026-08-27T23:36:38.905368" elapsed="0.006766"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="Browser">
-<msg time="2026-08-27T23:36:38.918000" level="INFO">Text: ['$49.99']</msg>
-<msg time="2026-08-27T23:36:38.918100" level="INFO">${price_text} = $49.99</msg>
-<var>${price_text}</var>
-<arg>css=:nth-match(.inventory_item_price, ${index})</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.912286" elapsed="0.005828"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price_text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.918227" elapsed="0.000189"/>
-</kw>
-<var name="${index}">6</var>
-<status status="PASS" start="2026-08-27T23:36:38.912210" elapsed="0.006233"/>
-</iter>
-<var>${index}</var>
-<value>1</value>
-<value>${count + 1}</value>
-<status status="PASS" start="2026-08-27T23:36:38.825170" elapsed="0.093303"/>
-</for>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-08-27T23:36:38.918851" level="INFO">['$7.99', '$9.99', '$15.99', '$15.99', '$29.99', '$49.99']</msg>
-<arg>${prices}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.918647" elapsed="0.000228"/>
+<status status="PASS" start="2026-08-27T23:47:20.788367" elapsed="0.005238"/>
 </kw>
 <kw name="Close Browser" owner="Browser">
-<msg time="2026-08-27T23:36:39.137406" level="INFO">Closed browser</msg>
+<msg time="2026-08-27T23:47:21.021892" level="INFO">Closed browser</msg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-08-27T23:36:38.918953" elapsed="0.218770"/>
+<status status="PASS" start="2026-08-27T23:47:20.793775" elapsed="0.228238"/>
 </kw>
-<status status="PASS" start="2026-08-27T23:36:33.439339" elapsed="5.698756"/>
+<status status="PASS" start="2026-08-27T23:47:15.655824" elapsed="5.366407"/>
 </test>
-<status status="PASS" start="2026-08-27T23:36:33.273572" elapsed="5.871155"/>
+<status status="PASS" start="2026-08-27T23:47:15.509670" elapsed="5.527467"/>
 </suite>
 <statistics>
 <total>
@@ -230,7 +104,7 @@
 <tag>
 </tag>
 <suite>
-<stat name="Dropdown" id="s1" pass="1" fail="0" skip="0">Dropdown</stat>
+<stat name="Cart" id="s1" pass="1" fail="0" skip="0">Cart</stat>
 </suite>
 </statistics>
 <errors>
