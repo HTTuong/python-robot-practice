@@ -23,3 +23,11 @@ POST Create A New Post And Return Status 201
     ${body}=    Set Variable    ${response.json()}
     Should Be Equal As Strings    ${body}[title]    Learn Robot Framework
     Should Contain    ${body}    id
+
+PUT Update Post And Return Status 200
+    &{data}=    Create Dictionary    id=${1}    title=Updated Title    body=New Content    userId=${1}
+    ${response}=    PUT On Session    jsonplaceholder    /posts/1    json=${data}    expected_status=200
+    Should Be Equal As Strings    ${response.json()}[title]    Updated Title  
+
+DELETE Post And Return Status 200
+    ${response}=    DELETE On Session    jsonplaceholder    /posts/1    expected_status=200
