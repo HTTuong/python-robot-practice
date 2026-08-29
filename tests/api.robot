@@ -16,3 +16,10 @@ GET 1 Post BY Id
 
 GET Not Found Post And Return 404
     ${response}=    GET On Session    jsonplaceholder    /posts/9999    expected_status=404
+
+POST Create A New Post And Return Status 201
+    &{data}=    Create Dictionary    title=Learn Robot Framework    body=Day 41 - RequestsLibrary    userId=${1}
+    ${response}=    POST On Session    jsonplaceholder    /posts    json=${data}    expected_status=201
+    ${body}=    Set Variable    ${response.json()}
+    Should Be Equal As Strings    ${body}[title]    Learn Robot Framework
+    Should Contain    ${body}    id
