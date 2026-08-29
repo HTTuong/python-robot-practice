@@ -18,10 +18,12 @@ Add Product To Cart And Check Cart Badge
     Get Element Count    css=.inventory_item    ==    6
 
     Click    css=.inventory_item:nth-child(1) >> css=button
-    Get Text    css=.shopping_cart_badge    ==    1
+    ${badge}=    Get Cart Badge Count
+    Should Be Equal As Strings    ${badge}    1
 
     Click    css=.inventory_item:nth-child(2) >> css=button
-    Get Text    css=.shopping_cart_badge    ==    2
+    ${badge}=     Get Cart Badge Count
+    Should Be Equal As Strings    ${badge}    2
 
 Remove Product In Cart And Check Cart Badge
     Fill Text    id=user-name    ${USERNAME}
@@ -38,4 +40,8 @@ Remove Product In Cart And Check Cart Badge
 Open Browser To Saucedemo
     New Browser    chromium    headless=False
     New Page    ${BASE_URL}
+
+Get Cart Badge Count
+    ${count}=    Get Text    css=.shopping_cart_badge
+    RETURN    ${count}
     
