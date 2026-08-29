@@ -29,6 +29,7 @@ Add Product To Cart And Check Cart Badge
     Click    css=.inventory_item:nth-child(2) >> css=button
     ${badge}=     Get Cart Badge Count
     Should Be Equal As Strings    ${badge}    2
+    Verify Cart Badge Or Empty    2
 
 Remove Product In Cart And Check Cart Badge
     Fill Text    id=user-name    ${USERNAME}
@@ -70,6 +71,14 @@ Login And Add N Products To Cart
     [Arguments]    ${product_count}=1
     Login As Standard User    ${USERNAME}    ${PASSWORD}
     Add N Products To Cart    ${product_count}
+
+Verify Cart Badge Or Empty
+    [Arguments]    ${expected_count}
+    IF    ${expected_count} == 0
+        Get Element States    css=.shopping_cart_badge    contains    hidden
+    ELSE
+        Get Text    css=.shopping_cart_badge    ==    ${expected_count}
+    END
 
 
     
