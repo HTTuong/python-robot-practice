@@ -1,19 +1,12 @@
 *** Settings ***
 Library    Browser
 Library    Collections
-
-*** Variables ***
-${BASE_URL}    https://www.saucedemo.com
-${USERNAME}    standard_user
-${PASSWORD}    secret_sauce
+Resource    ../resources/saucedemo_keywords.resource
 
 *** Test Cases ***
 Sort product in ascending price
-    New Browser    chromium    headless=False
-    New Page    ${BASE_URL}   
-    Fill Text    id=user-name    ${USERNAME}
-    Fill Text    id=password    ${PASSWORD}
-    Click    id=login-button
+    Open Browser To Saucedemo
+    Login With Dynamic User    # robotcode: ignore
 
     Select Options By    css=[data-test="product-sort-container"]    value    lohi
 

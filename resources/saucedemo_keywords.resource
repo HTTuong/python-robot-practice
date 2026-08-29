@@ -1,0 +1,41 @@
+*** Settings ***
+Library    Browser
+Resource    variables.resource
+
+*** Keywords ***
+Open Browser To Saucedemo
+    New Browser    chromium    headless=False
+    New Page    ${BASE_URL}
+
+Login With Dynamic User
+    [Arguments]    ${login_username}=${USERNAME}    ${login_password}=${PASSWORD}
+    Fill Text    id=user-name    ${login_username}
+    Fill Text    id=password    ${login_password}
+    Click    id=login-button 
+
+Get Cart Badge Count
+    ${count}=    Get Text    css=.shopping_cart_badge
+    RETURN    ${count}
+
+Add N Products To Cart
+    [Arguments]    ${count: int}=1
+    FOR    ${index}    IN RANGE    1    ${count + 1}
+        Add Product To Cart By Index    ${index}
+    END
+    
+Add Product To Cart By Index
+    [Arguments]    ${index}=1
+    Click    css=.inventory_item:nth-of-type(${index}) .btn_inventory
+
+Login And Add N Products To Cart
+    [Arguments]    ${product_count}=1
+    Login With Dynamic User    ${USERNAME}    ${PASSWORD}
+    Add N Products To Cart    ${product_count}
+
+Verify Cart Badge Or Empty
+    [Arguments]    ${expected_count}
+    IF    ${expected_count} == 0
+        Get Element States    css=.shopping_cart_badge    contains    hidden
+    ELSE
+        Get Text    css=.shopping_cart_badge    ==    ${expected_count}
+    END
