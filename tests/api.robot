@@ -32,6 +32,11 @@ PUT Update Post And Return Status 200
 DELETE Post And Return Status 200
     ${response}=    DELETE On Session    jsonplaceholder    /posts/1    expected_status=200
 
+GET User Verify Nested Object
+    ${response}=    GET On Session    jsonplaceholder    /users/1    expected_status=200
+    ${body}=    Set Variable    ${response.json()}
+    Should Be Equal As Strings    ${body}[address][city]    Gwenborough 
+
 *** Keywords ***
 PATCH Update A Part of Post
     &{data}=    Create Dictionary    title=Only update title
