@@ -39,9 +39,12 @@ GET User Verify Nested Object
 
 Verify Response Content Type Header
     ${response}=     GET On Session    jsonplaceholder    /posts/1    expected_status=200
-    Should Be Equal As Strings    ${response.header}[Content-Type]    application/json
+    Should Be Equal As Strings    ${response.headers}[Content-Type]    application/json; charset=utf-8
 
-    
+POST Wrong Data but Still Return 201
+    &{data}=    Create Dictionary    title=${123}    body=Test    userId=${1}
+    ${response}=    POST On Session    jsonplaceholder    /posts    json=${data}    expected_status=201
+
     
 
 *** Keywords ***
