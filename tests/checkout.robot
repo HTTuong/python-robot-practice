@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ../resources/saucedemo_keywords.resource
+Resource    ../resources/locators.resource
 Test Teardown    Close Browser
 
 *** Test Cases ***
@@ -15,7 +16,7 @@ Checkout Failed With No Firstname
     Click    css=.shopping_cart_link
     Click    css=[data-test="checkout"]
     Click    css=[data-test="continue"]
-    Get Text    css=[data-test="error"]    contains    First Name is required
+    Get Text    ${ERROR}    contains    First Name is required
 
 Sort Product From Z To A
     Open Browser To Saucedemo
