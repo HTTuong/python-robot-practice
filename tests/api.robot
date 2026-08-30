@@ -45,8 +45,6 @@ POST Wrong Data but Still Return 201
     &{data}=    Create Dictionary    title=${123}    body=Test    userId=${1}
     ${response}=    POST On Session    jsonplaceholder    /posts    json=${data}    expected_status=201
 
-    
-
 *** Keywords ***
 PATCH Update A Part of Post
     &{data}=    Create Dictionary    title=Only update title
