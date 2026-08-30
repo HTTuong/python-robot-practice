@@ -37,6 +37,13 @@ GET User Verify Nested Object
     ${body}=    Set Variable    ${response.json()}
     Should Be Equal As Strings    ${body}[address][city]    Gwenborough 
 
+Verify Response Content Type Header
+    ${response}=     GET On Session    jsonplaceholder    /posts/1    expected_status=200
+    Should Be Equal As Strings    ${response.header}[Content-Type]    application/json
+
+    
+    
+
 *** Keywords ***
 PATCH Update A Part of Post
     &{data}=    Create Dictionary    title=Only update title
