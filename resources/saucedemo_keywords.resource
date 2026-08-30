@@ -39,3 +39,13 @@ Verify Cart Badge Or Empty
     ELSE
         Get Text    css=.shopping_cart_badge    ==    ${expected_count}
     END
+
+Complete Checkout
+    [Arguments]    ${first_name}=Tuong    ${last_name}=Hoang    ${postal_code}=00760
+    Click    css=.shopping_cart_link
+    Click    css=[data-test="checkout"]
+    Fill Text    css=[data-test="firstName"]    ${first_name}
+    Fill Text    css=[data-test="lastName"]    ${last_name}
+    Fill Text    css=[data-test="postalCode"]    ${postal_code}
+    Click    css=[data-test="continue"]
+    Click    css=[data-test="finish"]
