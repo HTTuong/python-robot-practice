@@ -1,7 +1,8 @@
 *** Settings ***
 Library    RequestsLibrary
 Library    Collections
-Suite Setup    Create Session    jsonplaceholder    https://jsonplaceholder.typicode.com
+Resource    ../resources/api_keywords.resource
+Test Setup    Create JSONPlaceholder Session
 
 *** Test Cases ***
 GET Posts And Return Status 200
