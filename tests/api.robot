@@ -31,3 +31,10 @@ PUT Update Post And Return Status 200
 
 DELETE Post And Return Status 200
     ${response}=    DELETE On Session    jsonplaceholder    /posts/1    expected_status=200
+
+*** Keywords ***
+PATCH Update A Part of Post
+    &{data}=    Create Dictionary    title=Only update title
+    ${response}=    PATCH On Session    jsonplaceholder    /posts/1    json=${data}    expected_status=200
+    Should Be Equal As Strings    ${response.json()}[title]    Only update title
+    Should Not Be Empty    ${response.json()}[body]
