@@ -25,3 +25,9 @@ Check Continue Button In Checkout Page
     Click    css=.shopping_cart_link
     Click    css=[data-test="continue-shopping"]
     Get Url    contains    inventory.html
+
+Logout Successfull
+    Login And Add N Products To Cart    0
+    Click    css=#react-burger-menu-btn
+    Click    css=#logout_sidebar_link
+    Get Url    ==    https://www.saucedemo.com/
