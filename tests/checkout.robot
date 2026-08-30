@@ -14,3 +14,8 @@ Checkout Failed With No Firstname
     Click    css=[data-test="checkout"]
     Click    css=[data-test="continue"]
     Get Text    css=[data-test="error"]    contains    First Name is required
+
+Sort Product From Z To A
+    Login And Add N Products To Cart    0
+    Select Options By    css=[data-test="product-sort-container"]    value    az
+    Get Text    css=:nth-match(.inventory_item_name, 1)    ==    Sauce Labs Backpack
