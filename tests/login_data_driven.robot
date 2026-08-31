@@ -5,16 +5,19 @@ Resource    ../resources/locators.resource
 Test Template    Login With Invalid Credential Should Fail
 Test Teardown    Close Browser
 
-*** Test Cases ***
-Wrong Username And Password              sai_user              sai_pass           Username and password do not match
-Wrong Password                          standard_user         sai_pass           Username and password do not match
-Locked Account                     locked_out_user       secret_sauce       locked out
-Missing Username                        ${EMPTY}              secret_sauce       Username is required
+*** Test Cases ***                       USERNAME              PASSWORD             ERROR_MESSAGE                             TAGS
+Wrong Username And Password              wrong_user            wrong_pass           Username and password do not match        regression,login   
+Wrong Password                           standard_user         wrong_pass           Username and password do not match        regression,login
+Locked Account                           locked_out_user       secret_sauce         locked out                                edge-case
+Missing Username                         ${EMPTY}              secret_sauce         Username is required                      regression,login
 
 
 *** Keywords ***
 Login With Invalid Credential Should Fail
-    [Arguments]    ${username}    ${password}    ${error_message}
+    [Arguments]    ${username}    ${password}    ${error_message}    ${tags}=${EMPTY}
+    IF    $tags
+        Set Tags    ${tags}
+    END
     Open Browser To Saucedemo
     Login With Dynamic User    ${username}    ${password}
     Get Text    ${ERROR}    contains    ${error_message}
