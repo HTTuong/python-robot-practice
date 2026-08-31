@@ -66,6 +66,14 @@ robot tests/cart_selenium.robot     # run the SeleniumLibrary comparison suite
 robot --dryrun tests/               # validate syntax/keywords without opening a browser
 ```
 
+## Running by Tag
+
+```
+robot --include smoke tests/        # fast feedback subset
+robot --include regression tests/   # full regression suite
+robot --include checkout tests/     # single feature area
+```
+
 ### Viewing Reports
 
 Robot Framework generates `log.html` and `report.html` after every run:
