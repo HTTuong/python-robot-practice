@@ -6,6 +6,7 @@ Test Teardown    Close Browser
 
 *** Test Cases ***
 Login Successfully with Standard User
+    [Tags]    smoke    login
     Open Browser To Saucedemo
     Login With Dynamic User     # robotcode: ignore
     Get Url    contains    inventory

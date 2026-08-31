@@ -1,10 +1,13 @@
 *** Settings ***
 Resource    ../resources/saucedemo_keywords.resource
 Resource    ../resources/locators.resource
+Test Tags    ui
 Test Teardown    Close Browser
+
 
 *** Test Cases ***
 Checkout Successfully
+    [Tags]    regression    checkout
     Open Browser To Saucedemo
     Login And Add N Products To Cart    1
     Complete Checkout
