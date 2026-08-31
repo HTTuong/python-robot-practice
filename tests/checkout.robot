@@ -13,6 +13,12 @@ Checkout Successfully
     Complete Checkout
     Get Text    css=.complete-header    ==    Thank you for your order!
 
+Check Multiple User Data Set
+    [Template]    Checkout With Invalid Info Should Show Error
+    ${EMPTY}       Hoang       00760       First Name is required
+    Tuong         ${EMPTY}    00760       Last Name is required
+    Tuong         Hoang       ${EMPTY}    Postal Code is required
+
 Checkout Failed With No Firstname
     Open Browser To Saucedemo
     Login And Add N Products To Cart    1
@@ -40,3 +46,4 @@ Logout Successfull
     Click    css=#react-burger-menu-btn
     Click    css=#logout_sidebar_link
     Get Url    ==    https://www.saucedemo.com/
+

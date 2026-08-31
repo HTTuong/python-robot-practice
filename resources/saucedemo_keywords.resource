@@ -1,6 +1,7 @@
 *** Settings ***
 Library    Browser
 Resource    variables.resource
+Resource    locators.resource
 
 *** Keywords ***
 Open Browser To Saucedemo
@@ -49,3 +50,27 @@ Complete Checkout
     Fill Text    css=[data-test="postalCode"]    ${postal_code}
     Click    css=[data-test="continue"]
     Click    css=[data-test="finish"]
+
+# Template
+Login With Invalid Credential Should Fail
+    [Arguments]    ${username}    ${password}    ${error_message}    ${tags}=${EMPTY}
+    IF    $tags
+        Set Tags    ${tags}
+    END
+    Open Browser To Saucedemo
+    Login With Dynamic User    ${username}    ${password}
+    Get Text    ${ERROR}    contains    ${error_message}
+
+Checkout With Invalid Info Should Show Error
+    [Arguments]    ${firstname}    ${lastname}    ${postal_code}    ${error_message}
+    Open Browser To Saucedemo
+    Login With Dynamic User
+    Click    css=.shopping_cart_link
+    Click    css=[data-test="checkout"]
+    Fill Text    css=[data-test="firstName"]    ${first_name}
+    Fill Text    css=[data-test="lastName"]    ${last_name}
+    Fill Text    css=[data-test="postalCode"]    ${postal_code}
+    Click    css=[data-test="continue"]
+    Get Text    ${ERROR}    contains    ${error_message}
+
+    
