@@ -1,0 +1,9 @@
+venv/
+log.html
+report.html
+output.xml
+playwright-log.txt
+selenium-screenshot-*.png
+.pabotsuitenames
+pabot_results/
+.git/
