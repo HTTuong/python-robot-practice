@@ -5,7 +5,7 @@ Resource    locators.resource
 
 *** Keywords ***
 Open Browser To Saucedemo
-    New Browser    chromium    headless=False
+    New Browser    chromium    headless=${HEADLESS}
     New Page    ${BASE_URL}
 
 Login With Dynamic User
