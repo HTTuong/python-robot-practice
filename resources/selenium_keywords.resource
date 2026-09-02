@@ -5,7 +5,8 @@ Resource    variables.resource
 *** Keywords ***
 Open Browser And Login With No Password Check
     IF    "${HEADLESS}" == "True"
-        Open Browser    ${BASE_URL}    chrome    options=add_argument("--headless=new")
+        Open Browser    ${BASE_URL}    chrome
+        ...    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu")
     ELSE
         Open Browser    ${BASE_URL}    chrome
         ...    options=add_experimental_option("prefs", {"credentials_enable_service": False, "profile.password_manager_leak_detection": False})
