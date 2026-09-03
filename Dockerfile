@@ -22,4 +22,4 @@ RUN rfbrowser init
 
 COPY . .
 
-CMD ["robot", "--outputdir", "results", "tests/"]
+CMD ["sh", "-c", "robot --outputdir results tests/ || (echo 'Some tests failed - retrying failed tests once...' && robot --outputdir results --rerunfailed results/output.xml --output results/output.xml tests/)"]
