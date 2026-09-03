@@ -2,11 +2,14 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export const options = {
-  vus: 10,          // 10 "virtual user"
-  duration: '30s',  // running in 30s
+  stages: [
+    { duration: '10s', target: 20 },  // increase to 20 VU in 10s
+    { duration: '20s', target: 20 },  // 20 VU in 20s
+    { duration: '10s', target: 0 },   // down to 0
+  ],
   thresholds: {
-    http_req_duration: ['p(95)<500'],  // 95% request phải nhanh hơn 500ms
-    http_req_failed: ['rate<0.01'],    // tỷ lệ lỗi phải dưới 1%
+    http_req_duration: ['p(95)<500'],  
+    http_req_failed: ['rate<0.01'],    
   }
 };
 
