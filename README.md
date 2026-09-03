@@ -105,6 +105,9 @@ open report.html   # pass/fail summary
 
 **Native browser interference is a real test hazard.** SeleniumLibrary tests initially failed intermittently due to Chrome's own password-leak-detection popup intercepting clicks after login with a widely-shared demo password. Fixed by disabling the relevant Chrome preferences (`credentials_enable_service`, `profile.password_manager_leak_detection`) at browser launch — a reminder that headed-browser test runs can surface OS/browser-level UI that headless CI runs would never expose.
 
+### Known limitation
+SeleniumLibrary tests fail intermittently when running headless inside Docker on Apple Silicon  hosts (via amd64 emulation). Root cause is believed to be emulation-layer instability affecting click reliability, not a defect in the test logic — the same tests pass reliably when run natively  (no Docker) on the same machine. Verified to run correctly on native amd64 CI runners (GitHub Actions).
+
 ## Author
 
 Tuong Hoang

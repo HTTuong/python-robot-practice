@@ -1,0 +1,8 @@
+services:
+  tests:
+    platform: linux/amd64
+    build: .
+    environment:
+      - HEADLESS=True
+    volumes:
+      - ./results:/app/results
