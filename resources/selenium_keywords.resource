@@ -6,7 +6,7 @@ Resource    variables.resource
 Open Browser And Login With No Password Check
     IF    "${HEADLESS}" == "True"
         Open Browser    ${BASE_URL}    chrome
-        ...    options=add_argument("--headless=old");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--window-size=1920,1080")
+        ...    options=add_argument("--headless=new");add_argument("--no-sandbox");add_argument("--disable-dev-shm-usage");add_argument("--disable-gpu");add_argument("--window-size=1920,1080")
         Set Selenium Timeout    30s
     ELSE
         Open Browser    ${BASE_URL}    chrome

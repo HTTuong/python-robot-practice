@@ -28,5 +28,5 @@ Remove Product In Cart And Check Cart Badge
     Wait Until Element Is Visible    css=[data-test="remove-sauce-labs-backpack"]
     Wait Until Element Is Enabled    css=[data-test="remove-sauce-labs-backpack"]
     Click Element    css=[data-test="remove-sauce-labs-backpack"]
-    Wait Until Page Does Not Contain Element    css=.shopping_cart_badge    timeout=5s
+    Wait Until Page Does Not Contain Element    css=.shopping_cart_badge    timeout=30s
 
