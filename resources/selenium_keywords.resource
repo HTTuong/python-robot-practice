@@ -13,6 +13,7 @@ Open Browser And Login With No Password Check
         ...    options=add_experimental_option("prefs", {"credentials_enable_service": False, "profile.password_manager_leak_detection": False})
         Set Selenium Timeout    10s
     END
+    Wait Until Element Is Visible    id=user-name
 
 Login With Standard User
     Input Text    id=user-name    ${USERNAME}
