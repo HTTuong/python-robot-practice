@@ -1,0 +1,32 @@
+name: Robot Framework Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t robot-framework-automation .
+
+      - name: Run tests
+        run: |
+          mkdir -p results
+          docker run --rm \
+            -e HEADLESS=True \
+            -v ${{ github.workspace }}/results:/app/results \
+            robot-framework-automation
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-results
+          path: results/
+          retention-days: 7
