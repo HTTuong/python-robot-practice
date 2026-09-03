@@ -108,6 +108,9 @@ open report.html   # pass/fail summary
 ### Known limitation
 SeleniumLibrary tests fail intermittently when running headless inside Docker on Apple Silicon  hosts (via amd64 emulation). Root cause is believed to be emulation-layer instability affecting click reliability, not a defect in the test logic — the same tests pass reliably when run natively  (no Docker) on the same machine. Verified to run correctly on native amd64 CI runners (GitHub Actions).
 
+### Flaky test handling
+CI occasionally sees timing-related failures in Cart Selenium tests when running against the live saucedemo.com over network on shared GitHub Actions runners. Root functional bugs (headless mode click handling, SPA hydration race) were identified and fixed through systematic elimination. Remaining intermittent failures are handled via automatic retry (`--rerunfailed`), consistent with industry-standard flaky-test handling in browser automation.
+
 ## Author
 
 Tuong Hoang
