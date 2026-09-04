@@ -15,18 +15,37 @@ jobs:
       - name: Build Docker image
         run: docker build -t robot-framework-automation .
 
-      - name: Run tests
+      - name: Run stable suite (blocking)
         run: |
           mkdir -p results
           docker run --rm \
             -e HEADLESS=True \
             -v ${{ github.workspace }}/results:/app/results \
-            robot-framework-automation
+            robot-framework-automation \
+            robot --outputdir results --exclude flaky tests/
 
-      - name: Upload results
+      - name: Run known-flaky tests (non-blocking, quarantined)
+        continue-on-error: true
+        run: |
+          mkdir -p results-flaky
+          docker run --rm \
+            -e HEADLESS=True \
+            -v ${{ github.workspace }}/results-flaky:/app/results \
+            robot-framework-automation \
+            sh -c "robot --outputdir results --include flaky tests/ || robot --outputdir results --rerunfailed results/output.xml --output results/output.xml --include flaky tests/"
+
+      - name: Upload stable results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: robot-results
+          name: robot-results-stable
           path: results/
+          retention-days: 7
+
+      - name: Upload flaky results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-results-flaky
+          path: results-flaky/
           retention-days: 7

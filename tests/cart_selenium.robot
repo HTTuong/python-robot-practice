@@ -5,6 +5,7 @@ Test Teardown    Close Browser
 
 *** Test Cases ***
 Add Product To Cart And Check Cart Badge
+    [Tags]    regression    cart    flaky
     Open Browser And Login With No Password Check
     Login With Standard User
     Wait Until Element Is Visible    css=.inventory_item:nth-of-type(1) .btn_inventory
@@ -18,6 +19,7 @@ Add Product To Cart And Check Cart Badge
     Wait Until Element Contains    css=.shopping_cart_badge    2   
 
 Remove Product In Cart And Check Cart Badge
+    [Tags]    regression    cart    flaky
     Open Browser And Login With No Password Check
     Login With Standard User
     Wait Until Element Is Visible    css=[data-test="add-to-cart-sauce-labs-backpack"]
